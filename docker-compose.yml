@@ -1,0 +1,7 @@
+version: '1.0'
+
+services:
+  creator-tables-format:
+    build:
+      context: .
+    restart: always
