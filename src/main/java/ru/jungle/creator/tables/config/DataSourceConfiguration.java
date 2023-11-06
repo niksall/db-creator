@@ -7,6 +7,9 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 @Configuration
 @EnableTransactionManagement
@@ -25,5 +28,14 @@ public class DataSourceConfiguration {
     @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
+    }
+
+    @Bean
+    public Connection driverManager(DataSourceProperties dataSourceProperties) throws SQLException {
+        return DriverManager.getConnection(
+                dataSourceProperties.url(),
+                dataSourceProperties.username(),
+                dataSourceProperties.password()
+        );
     }
 }

@@ -6,6 +6,7 @@ import ru.jungle.creator.tables.dto.request.TableRequest;
 import ru.jungle.creator.tables.repository.TableRepository;
 import ru.jungle.creator.tables.service.exception.ValidationException;
 
+import java.util.*;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -19,13 +20,15 @@ public class TableService {
     @Autowired
     private TableRepository tableRepository;
 
-    public void create(TableRequest tableRequest) {
-        String tableName = tableRequest.getTableName();
-        String columns = tableRequest.getColumns()
-                .stream()
-                .map(this::getColumnDefinition)
-                .collect(Collectors.joining(", "));
-        tableRepository.createTable(tableName, columns);
+    public void create(List<TableRequest> tableRequest) {
+        tableRequest.forEach(t -> {
+            String tableName = t.getTableName();
+            String columns = t.getColumns()
+                    .stream()
+                    .map(this::getColumnDefinition)
+                    .collect(Collectors.joining(", "));
+            tableRepository.createTable(tableName, columns);
+        });
     }
 
     private String getColumnDefinition(TableRequest.ColumnNameType column) {
@@ -52,7 +55,7 @@ public class TableService {
 
     private String isForeignKey(TableRequest.ColumnNameType column, String columnDefinition) {
         TableRequest.ColumnNameType.ReferenceTable referenceTable = column.getReferenceTable();
-        if(!referenceTable.getTableName().isEmpty() || !referenceTable.getColumnName().isEmpty()) {
+        if (!referenceTable.getTableName().isEmpty() || !referenceTable.getColumnName().isEmpty()) {
             return checkFieldsRefTable(columnDefinition, referenceTable);
         }
         return columnDefinition;

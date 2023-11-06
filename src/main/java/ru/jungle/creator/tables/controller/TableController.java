@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.jungle.creator.tables.dto.request.TableRequest;
 import ru.jungle.creator.tables.service.TableService;
 
+import java.util.*;
+
 @RestController
 @RequestMapping("/api/table")
 public class TableController {
@@ -25,7 +27,7 @@ public class TableController {
 
     @PostMapping
     @Operation(summary = "Создать таблицу")
-    public ResponseEntity<String> createTable(@Valid @RequestBody final TableRequest tableRequest){
+    public ResponseEntity<String> createTable(@Valid @RequestBody final List<TableRequest> tableRequest){
         tableService.create(tableRequest);
         return new ResponseEntity<>("Параметры корректны", HttpStatus.OK);
     }
