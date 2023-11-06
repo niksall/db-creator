@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CheckConnectionTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-10-25T20:11:59" hostname="SPB-008" time="1.102">
+  <properties/>
+  <testcase name="shouldGetJdbcConnection()" classname="CheckConnectionTest" time="1.027"/>
+  <testcase name="shouldSelectData()" classname="CheckConnectionTest" time="0.026"/>
+  <testcase name="shouldInsertInResultSet()" classname="CheckConnectionTest" time="0.043"/>
+  <system-out><![CDATA[23:11:54.839 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [CheckConnectionTest]: using SpringBootContextLoader
+23:11:54.849 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [CheckConnectionTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+23:11:54.921 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [CheckConnectionTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+23:11:55.191 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [CheckConnectionTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+23:11:55.194 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [CheckConnectionTest], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-10-25T23:11:55.801+03:00  INFO 11928 --- [    Test worker] CheckConnectionTest                      : Starting CheckConnectionTest using Java 17.0.4 with PID 11928 (started by anduser in C:\Users\anduser\Documents\IdeaProjects\db-creator)
+2023-10-25T23:11:55.803+03:00  INFO 11928 --- [    Test worker] CheckConnectionTest                      : No active profile set, falling back to 1 default profile: "default"
+2023-10-25T23:11:59.701+03:00  INFO 11928 --- [    Test worker] CheckConnectionTest                      : Started CheckConnectionTest in 4.436 seconds (process running for 6.39)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
