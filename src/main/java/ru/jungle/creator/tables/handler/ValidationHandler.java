@@ -1,4 +1,4 @@
-package ru.jungle.creator.tables.service.handler;
+package ru.jungle.creator.tables.handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.BadSqlGrammarException;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import ru.jungle.creator.tables.dto.response.ErrorSqlResponse;
 import ru.jungle.creator.tables.dto.response.ErrorValidationResponse;
-import ru.jungle.creator.tables.service.exception.ValidationException;
+import ru.jungle.creator.tables.exception.ValidationException;
 
 import java.util.List;
 import java.util.stream.Collectors;

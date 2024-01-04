@@ -1,4 +1,4 @@
-package ru.jungle.creator.tables.service.handler;
+package ru.jungle.creator.tables.handler;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -12,7 +12,6 @@ import java.util.*;
 import java.util.Arrays;
 
 @Aspect
-
 @Component
 @Slf4j
 public class LogService {

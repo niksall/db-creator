@@ -4,3 +4,11 @@ spring:
     url: "jdbc:postgresql://localhost:5432/postgres"
     username: "postgres"
     password: "postgres"
+
+  logging:
+    file:
+      name: selfСreatorTable.log
+      path: /
+    level:
+      root: ERROR
+      ru.jungle.creator.tables.service.TableService: INFO

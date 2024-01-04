@@ -1,4 +1,4 @@
-package ru.jungle.creator.tables.service.exception;
+package ru.jungle.creator.tables.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

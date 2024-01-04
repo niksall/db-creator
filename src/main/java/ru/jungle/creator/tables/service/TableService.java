@@ -1,16 +1,19 @@
 package ru.jungle.creator.tables.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.jungle.creator.tables.dto.response.ResultColumns;
 import ru.jungle.creator.tables.dto.request.TableRequest;
 import ru.jungle.creator.tables.repository.TableRepository;
-import ru.jungle.creator.tables.service.exception.ValidationException;
+import ru.jungle.creator.tables.exception.ValidationException;
 
 import java.util.*;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class TableService {
 
     private static final String AUTO_INCREMENT_PK = " serial PRIMARY KEY";
@@ -21,6 +24,8 @@ public class TableService {
     private TableRepository tableRepository;
 
     public void create(List<TableRequest> tableRequest) {
+        log.info("Start create table");
+
         tableRequest.forEach(t -> {
             String tableName = t.getTableName();
             String columns = t.getColumns()
@@ -29,6 +34,11 @@ public class TableService {
                     .collect(Collectors.joining(", "));
             tableRepository.createTable(tableName, columns);
         });
+    }
+
+    public Map<String, List<ResultColumns>> getCreatedTable(String tableName){
+        Map<String, List<ResultColumns>> tableByName = tableRepository.findTableByName(tableName);
+        return tableByName;
     }
 
     private String getColumnDefinition(TableRequest.ColumnNameType column) {
@@ -42,7 +52,7 @@ public class TableService {
         }
     }
 
-    private boolean isPrimaryKey(String columnName) {
+    public boolean isPrimaryKey(String columnName) {
         return "id".equalsIgnoreCase(columnName);
     }
 
